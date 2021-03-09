@@ -1,0 +1,27 @@
+{
+  "author": "Caleb McOlin",
+  "name": "finder",
+  "version": "1.0.0",
+  "description": "A web scraper to find availible xbox gamertags",
+  "main": "app.js",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --es_staging --harmony_arrow_functions server.js",
+    "build": "rm -rf public && cp -pr src/static/ public && webpack",
+    "lint": "npm run lint:node && npm run lint:browser",
+    "lint:node": "eslint --config=./.eslintrc *.js scripts/*.js",
+    "lint:browser": "eslint --config=./src/.eslintrc src/**/**/*.js"
+  },
+  "dependencies": {
+    "asyncawait": "^3.0.0",
+    "eslint": "^7.11.0",
+    "puppeteer": "^5.3.1"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "es6": true
+  }
+}
