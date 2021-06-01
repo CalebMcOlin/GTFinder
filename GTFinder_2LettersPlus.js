@@ -10,7 +10,7 @@ const array = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', '
     await page.goto('https://www.gamertagavailability.com/');
 
     var counter = 0;
-    // Loop that cycles through every single letter combination of 4-5 letter words that end with "tek"
+    // Loop that cycles through every single letter combination of 4-5 letter words that end with "xxx"
     for (var i = 0; i < 27; i++) {
         for (var j = 1; j < 27; j++) {// doesn't include the empty space (array[0]) in the second spot
 
