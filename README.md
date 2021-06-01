@@ -11,5 +11,14 @@ This only cycles through 2 letters but allows the additional hard coded string t
 EXAMPLE: 
 To search for a word that ends with ”ion”. You can enter in it to the search query and the results will be every 5-letter word that end with “ion”. _You can also have the additional hard coded string in the beginning or middle of the word._ 
 
+
+# HOW TO USE
+- Clone the Repo
+- Open in VS Code or locate directory in the Terminal
+- Run `npm install`
+- ...
+- ...coming soon
+
+
 ## DISCLAIMER:
 This app is not affiliated with Microsoft, www.gamertagavailability.com or any of their partners. 
