@@ -1,6 +1,8 @@
 import puppeteer from 'puppeteer';
 import { appendFileSync } from 'fs';
 import { menu } from './main.js';
+import promptSync from 'prompt-sync';
+const prompt = promptSync({ sigint: true });
 
 const letterArray = [' ', '', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
@@ -48,6 +50,7 @@ async function findAvalibleNames(nameSet, input) {
   appendFileSync(`AvailableNames-${input}.txt`, "These are a list of names that seem to be available... \n");
 
   let counter = 0;
+  let nameAmount = nameSet.size;
   for (let name of nameSet) {
     // Entering a text into the textbox on the web page
     await page.type('#mytag', name);
@@ -70,10 +73,13 @@ async function findAvalibleNames(nameSet, input) {
       page.goto('https://www.gamertagavailability.com/')
     ]);
     counter++;
+    process.stdout.write(`\r[${counter} of ${nameAmount}]`);
   };
-  console.log(`Checked: ${counter} name(s).`)
-  console.log(`Please check the "AvailableName-${input}.txt" for your options`);
-
   await browser.close();
+  console.log(`\nChecked all ${counter} name(s).`)
+  console.log(`Please open the "AvailableName-${input}.txt" for your options.`);
+  console.log("(Press 'Enter' to return to the main menu)");
+  prompt();
+  console.clear();
   menu();
 };
