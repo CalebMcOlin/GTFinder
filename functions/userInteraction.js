@@ -1,6 +1,6 @@
+import { findValidNames, } from './headlessBrowser.js';
 import promptSync from 'prompt-sync';
 const prompt = promptSync({ sigint: true });
-
 
 /**
  * The main navigation menu for the users to use
@@ -41,20 +41,12 @@ function getInput() {
     let input = prompt('-> ').trim().replace(/\s+/g, ' ');
     console.log('-------------------------------------------------------');
     if (validateInupt(input)) {
-        parseString(input);
+        findValidNames(input);
     } else {
         getInput(); // Recursive loop that gets "unwounded" at the end
     }
 }
-/**
- * Splits the string on the underscore and stores as an array.
- * 
- * @param {input} i 
- */
-function parseString(input) {
-    let inputArray = input.split('_');
-    console.log(inputArray);
-}
+
 
 /**
  * Checks in the given input passes the various checks to be a valid Xbox gamertag
@@ -65,8 +57,8 @@ function parseString(input) {
 function validateInupt(input) {
 
     // Check if starts with a number
-    let first = +input.charAt(0);
-    if (!isNaN(first)) {
+    let firstChar = +input.charAt(0);
+    if (!isNaN(firstChar)) {
         console.log('Can\'t start with a number.');
         return false;
     };
