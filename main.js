@@ -106,7 +106,10 @@ function validateInupt(input) {
  */
 function credits() {
     console.log('-------CREDITS-------')
-    console.log('Made by Caleb McOlin');
+    console.log('Made by: Caleb McOlin');
+    console.log('E-mail : Caleb.McOlin@gmail.com');
+    console.log('GitHub : https://github.com/CalebMcOlin');
+    console.log('Linkin : https://www.linkedin.com/in/calebmcolin/');
     console.log('---------------------')
     console.log("(Press 'Enter' to return to the main menu)");
     prompt();
@@ -121,8 +124,7 @@ function info() {
     console.log('--------------HOW TO USE--------------');
     console.log('You are allowed two random characters.');
     console.log('Place a "_" for each random charater.');
-    console.log('Example:');
-    console.log('Typing "H_a_ion" will cycle through every option that starts with "H", had "a" in the middle and ends with "ion"');
+    console.log('Example:  "Hello __ed"');
     console.log('--------------------------------------');
     console.log("(Press 'Enter' to return to the main menu)");
     prompt();
