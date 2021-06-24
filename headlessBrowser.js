@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import { appendFileSync } from 'fs';
+import { appendFileSync, existsSync, mkdirSync } from 'fs';
 import { menu } from './main.js';
 import promptSync from 'prompt-sync';
 const prompt = promptSync({ sigint: true });
@@ -47,7 +47,11 @@ async function findAvalibleNames(nameSet, input) {
   const page = await browser.newPage();
   await page.goto('https://www.gamertagavailability.com/');
 
-  appendFileSync(`AvailableNames-${input}.txt`, "These are a list of names that seem to be available... \n");
+  // Create the directory to hold all searches
+  const folderName = './All Searches'
+  if (!existsSync(folderName)) {
+    mkdirSync(folderName)
+  };
 
   let counter = 0;
   let nameAmount = nameSet.size;
@@ -64,7 +68,7 @@ async function findAvalibleNames(nameSet, input) {
     // Checking if the "yres" id is on the new page
     const yes = await page.$x('//*[@id="yres"]');
     if (yes.length > 0) {
-      appendFileSync(`AvailableNames-${input}.txt`, name + "\n");
+      appendFileSync(`./All Searches/${input}.txt`, name + "\n");
     };
 
     // Returning to the main page
@@ -77,8 +81,9 @@ async function findAvalibleNames(nameSet, input) {
   };
   await browser.close();
   console.log(`\nChecked all ${counter} name(s).`)
-  console.log(`Please open the "AvailableName-${input}.txt" for your options.`);
-  console.log("(Press 'Enter' to return to the main menu)");
+  console.log(`Please open the "All Searches" Folder to see you results.`);
+  console.log(`If no files are within the folder there were no matches.`);
+  console.log(`(Press 'Enter' to start over. Press 'Ctrl + C' to exit.)`);
   prompt();
   console.clear();
   menu();
