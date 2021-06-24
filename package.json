@@ -2,12 +2,12 @@
   "name": "gtfinder_v2",
   "version": "1.0.0",
   "description": "Xbox Gamertag finder",
-  "main": "app.js",
+  "main": "main.js",
   "type": "module",
   "author": "Caleb McOlin",
   "license": "ISC",
   "scripts": {
-    "start": "node app.js"
+    "start": "node main.js"
   },
   "dependencies": {
     "prompt-sync": "^4.2.0",

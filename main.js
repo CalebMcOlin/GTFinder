@@ -2,6 +2,9 @@ import { findValidNames, } from './headlessBrowser.js';
 import promptSync from 'prompt-sync';
 const prompt = promptSync({ sigint: true });
 
+console.log("Welcome, Thanks for giving GTFinder a try.");
+menu();
+
 /**
  * The main navigation menu for the users to use
  */

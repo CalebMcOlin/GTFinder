@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import { appendFileSync } from 'fs';
+import { menu } from './main';
 
 const letterArray = [' ', '', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
@@ -43,7 +44,7 @@ async function findAvalibleNames(nameSet, input) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto('https://www.gamertagavailability.com/');
-  
+
   appendFileSync(`AvailableNames-${input}.txt`, "These are a list of names that seem to be available...");
 
   let counter = 0;
@@ -74,4 +75,5 @@ async function findAvalibleNames(nameSet, input) {
   console.log(`Please check the "AvailableName-${input}.txt" for your options`);
 
   await browser.close();
+  menu();
 };
