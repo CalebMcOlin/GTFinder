@@ -2,6 +2,7 @@ import { findValidNames, } from './headlessBrowser.js';
 import promptSync from 'prompt-sync';
 const prompt = promptSync({ sigint: true });
 
+console.clear();
 console.log("Welcome, Thanks for giving GTFinder a try.");
 menu();
 
@@ -9,7 +10,6 @@ menu();
  * The main navigation menu for the users to use
  */
 export function menu() {
-    console.log();
     console.log('-----MENU-----');
     console.log('1) Start');
     console.log('2) How to use');
@@ -19,18 +19,22 @@ export function menu() {
 
     switch (response.trim()) {
         case '1':
+            console.clear();
             getInput();
             break;
         case '2':
+            console.clear();
             info();
             break;
         case '3':
+            console.clear();
             credits();
             break;
         default:
+            console.clear();
             console.log('Sorry, that was not an option.');
             menu();
-    }
+    };
 }
 
 /** 
@@ -47,7 +51,7 @@ function getInput() {
         findValidNames(input);
     } else {
         getInput(); // Recursive loop that gets "unwounded" at the end
-    }
+    };
 }
 
 
@@ -62,6 +66,7 @@ function validateInupt(input) {
     // Check if starts with a number
     let firstChar = +input.charAt(0);
     if (!isNaN(firstChar)) {
+        console.clear();
         console.log('Can\'t start with a number.');
         return false;
     };
@@ -69,18 +74,21 @@ function validateInupt(input) {
     // Check if special characters are used.
     let forbidden = RegExp(/[~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\.]/g);
     if (forbidden.test(input)) {
+        console.clear();
         console.log('No special characters allowed.');
         return false;
     };
 
     // Check if exceeded length requirement 
     if (input.length > 15) {
+        console.clear();
         console.log('Can\'t be longer than 15 characters.');
         return false;
     };
 
     // Check number of random positions (underscores)
     if ((input.split('_').length - 1) > 2) {
+        console.clear();
         console.log('A max of two random characters are allowed.');
         return false;
     } else if ((input.split('_').length - 1) === 0) {
@@ -102,6 +110,7 @@ function credits() {
     console.log('---------------------')
     console.log("(Press 'Enter' to return to the main menu)");
     prompt();
+    console.clear();
     menu();
 }
 
@@ -117,5 +126,6 @@ function info() {
     console.log('--------------------------------------');
     console.log("(Press 'Enter' to return to the main menu)");
     prompt();
+    console.clear();
     menu();
 }
