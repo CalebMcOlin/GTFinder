@@ -37,6 +37,37 @@ export function menu() {
     };
 }
 
+/**
+ * Displays the credis of the project
+ */
+ function credits() {
+    console.log('-------CREDITS-------')
+    console.log('Made by  : Caleb McOlin');
+    console.log('E-mail   : Caleb.McOlin@gmail.com');
+    console.log('GitHub   : https://github.com/CalebMcOlin');
+    console.log('Linkedin : https://www.linkedin.com/in/calebmcolin/');
+    console.log('---------------------')
+    console.log("(Press 'Enter' to return to the main menu)");
+    prompt();
+    console.clear();
+    menu();
+}
+
+/**
+ * Displays how to use the project
+ */
+ function info() {
+    console.log('--------------HOW TO USE--------------');
+    console.log('You are allowed two random characters.');
+    console.log('Place a "_" for each random charater.');
+    console.log('Example:  "Hello __ed"');
+    console.log('--------------------------------------');
+    console.log("(Press 'Enter' to return to the main menu)");
+    prompt();
+    console.clear();
+    menu();
+}
+
 /** 
  * Retrieve data from user and ensures all excess whitespaces are removed before.
  * If the input passes the validation it will be sent to the headlessBrowser.
@@ -53,7 +84,6 @@ function getInput() {
         getInput(); // Recursive loop that gets "unwounded" at the end
     };
 }
-
 
 /**
  * Checks in the given input passes the various checks to be a valid Xbox gamertag
@@ -101,33 +131,3 @@ function validateInupt(input) {
     return true;
 }
 
-/**
- * Displays the credis of the project
- */
-function credits() {
-    console.log('-------CREDITS-------')
-    console.log('Made by: Caleb McOlin');
-    console.log('E-mail : Caleb.McOlin@gmail.com');
-    console.log('GitHub : https://github.com/CalebMcOlin');
-    console.log('Linkin : https://www.linkedin.com/in/calebmcolin/');
-    console.log('---------------------')
-    console.log("(Press 'Enter' to return to the main menu)");
-    prompt();
-    console.clear();
-    menu();
-}
-
-/**
- * Displays how to use the project
- */
-function info() {
-    console.log('--------------HOW TO USE--------------');
-    console.log('You are allowed two random characters.');
-    console.log('Place a "_" for each random charater.');
-    console.log('Example:  "Hello __ed"');
-    console.log('--------------------------------------');
-    console.log("(Press 'Enter' to return to the main menu)");
-    prompt();
-    console.clear();
-    menu();
-}
